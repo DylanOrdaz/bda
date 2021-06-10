@@ -26,9 +26,7 @@
             <th scope="col">Apellidos</th>
             <th scope="col">Celular</th>
             <th scope="col">E-mail</th>
-            <th scope="col">Localidad</th>
             <th scope="col">Edad</th>
-            <th scope="col">Opciones</th>
           </tr>
         </thead>
         <tbody>
@@ -37,19 +35,20 @@
                 include 'funcs.php';
                 $pdo = Database::connect();
                 $sql = 'SELECT idPaciente, nombre, CONCAT (apellidoP," ", apellidoM) as apellidos, celular, email, localidad, fechaNacimiento from paciente order by idPaciente;';
+                $sql = 'SELECT paciente_id, consultorio_nombre, CONCAT(paciente_nombre,' ',paciente_apellido) AS Nombre,paciente_telefono,paciente_fecha_nacimiento from pacientes p INNER JOIN consultorios c ON p.consultorio_id = c.consultorio_id;';
                 foreach ($pdo->query($sql) as $row) {
                 echo '<tr>';                  
-                    echo '<td>'. $row['nombre'] . '</td>';
-                    echo '<td>'. $row['apellidos'] . '</td>';
-                    echo '<td>'. $row['celular'] . '</td>';
-                    echo '<td>'. calculaedad($row['fechaNacimiento']) . '</td>';
+                    echo '<td>'. $row['paciente_nombre'] . '</td>';
+                    echo '<td>'. $row['paciente_apellido'] . '</td>';
+                    echo '<td>'. $row['paciente_telefono'] . '</td>';
+                    echo '<td>'. calculaedad($row['paciente_fecha_nacimiento']) . '</td>';
                     echo '<td width=390>';
                     //echo '<div class="btn-toolbar" role="group">';
-                    echo '<a class="btn btn-outline-info btn-sm" onClick="loadDynamicContentModal('.$row['idPaciente'].')">Cuadro Clinico</a>';                    
+                    echo '<a class="btn btn-outline-info btn-sm" onClick="loadDynamicContentModal('.$row['paciente_id'].')">Cuadro Clinico</a>';                    
                     echo '&nbsp;';
-                    echo '<a class="btn btn-outline-light-green btn-sm" href="actPaciente.php?id='.$row['idPaciente'].'">Actualizar</a>';                    
+                    echo '<a class="btn btn-outline-light-green btn-sm" href="actPaciente.php?id='.$row['paciente_id'].'">Actualizar</a>';                    
                     echo '&nbsp;';
-                    echo '<a class="btn btn-outline-danger btn-sm" href="deletePaciente.php?id='.$row['idPaciente'].'">Eliminar</a>';
+                    echo '<a class="btn btn-outline-danger btn-sm" href="deletePaciente.php?id='.$row['paciente_id'].'">Eliminar</a>';
                     //echo '</div>';
                     echo '</td>';
                 echo '</tr>';
