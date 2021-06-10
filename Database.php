@@ -14,18 +14,16 @@ class Database extends PDO{
 	private $port 	= 5432;
     //instance
 	private $dbh;
-
-	$strCnx = "host=$host port=$port dbname=$dbname user=$user password=$pass";
-	$cnx = pg_connect($strCnx) or die ("Error de conexion. ". pg_last_error());
-	echo "Conexion exitosa <hr>";
  
 	//connect with postgresql and pdo
 	public function __construct(){
 	    try {
 	        $this->dbh = parent::__construct("pgsql:host=$this->host;port=$this->port;dbname=$this->dbname;user=$this->user;password=$this->pass");
+			echo "Conexion exitosa <hr>";
 	    }
         catch(PDOException $e){
 	        echo  $e->getMessage();
+			echo "Error de con";
 	    } 
 	}
  
