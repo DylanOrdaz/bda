@@ -22,10 +22,12 @@
             $this->consultorio = $consultorio;
         }
 
-        public function setPaciente($paciente){
+        public function setNomPaciente($nompaciente){
             $this->paciente = $paciente;
         }
-
+        public function setApePaciente($apepaciente){
+            $this->paciente = $paciente;
+        }
         public function setTelefono($telefono){
             $this->telefono = $telefono;
         }
@@ -38,7 +40,7 @@
     		try{
                 if(is_int($this->id)){
                     
-                    $query = $this->con->prepare('SELECT * FROM pacientes');
+                    $query = $this->con->prepare('SELECT paciente_id, consultorio_nombre, CONCAT(paciente_nombre,' ',paciente_apellido) AS Nombre,paciente_telefono,paciente_fecha_nacimiento from pacientes p INNER JOIN consultorios c ON p.consultorio_id = c.consultorio_id;');
                     $query->bindParam(1, $this->id, PDO::PARAM_INT);
                     $query->execute();
         			$this->con->close();

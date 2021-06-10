@@ -3,7 +3,7 @@
 		private static $dbName 			= 'ConsultorioD' ; 
 		private static $dbHost 			= 'localhost' ;
 		private static $dbUsername 		= 'Dental';
-		private static $dbUserPassword 	= 'Dental5512!';
+		private static $dbUserPassword 	= '!ASdf1234';
 		
 		private static $cont  = null;
 		
@@ -15,7 +15,7 @@
 		   // One connection through whole application
 	    	if ( null == self::$cont ) {      
 		    	try {
-		        	self::$cont =  new PDO( "pgsql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword);  
+		        	self::$cont =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword);  
 		        }
 		        catch(PDOException $e) {
 		        	die($e->getMessage());  
