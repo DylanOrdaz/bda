@@ -22,7 +22,7 @@ class Database extends PDO{
 	    }
         catch(PDOException $e){
 	        echo  $e->getMessage();
-			die("Error");
+			die("Error".$e);
 	    } 
 	}
  
