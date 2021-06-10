@@ -19,6 +19,7 @@ class Database extends PDO{
 	public function __construct(){
 	    try {
 	        $this->dbh = parent::__construct("pgsql:host=$this->host;port=$this->port;dbname=$this->dbname;user=$this->user;password=$this->pass");
+			echo "funciona";
 	    }
         catch(PDOException $e){
 	        echo  $e->getMessage();
