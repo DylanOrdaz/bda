@@ -33,7 +33,7 @@
         </thead>
         <tbody>
           <?php 
-                include 'database.php';
+                include 'Database.php';
                 include 'funcs.php';
                 $pdo = Database::connect();
                 $sql = 'SELECT idPaciente, nombre, CONCAT (apellidoP," ", apellidoM) as apellidos, celular, email, localidad, fechaNacimiento from paciente order by idPaciente;';
