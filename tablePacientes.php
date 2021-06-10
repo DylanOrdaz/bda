@@ -34,10 +34,12 @@
                 include 'Database.php';
                 include 'funcs.php';
                 $pdo = Database::connect();
-                $sql = 'SELECT idPaciente, nombre, CONCAT (apellidoP," ", apellidoM) as apellidos, celular, email, localidad, fechaNacimiento from paciente order by idPaciente;';
+                //$sql = 'SELECT idPaciente, nombre, CONCAT (apellidoP," ", apellidoM) as apellidos, celular, email, localidad, fechaNacimiento from paciente order by idPaciente;';
                 $sql = 'SELECT paciente_id, consultorio_nombre, CONCAT(paciente_nombre,' ',paciente_apellido) AS Nombre,paciente_telefono,paciente_fecha_nacimiento from pacientes p INNER JOIN consultorios c ON p.consultorio_id = c.consultorio_id;';
                 foreach ($pdo->query($sql) as $row) {
                 echo '<tr>';                  
+                    echo '<td>'. $row['paciente_id'] . '</td>';
+                    echo '<td>'. $row['consultorio_nombre'] . '</td>';
                     echo '<td>'. $row['paciente_nombre'] . '</td>';
                     echo '<td>'. $row['paciente_apellido'] . '</td>';
                     echo '<td>'. $row['paciente_telefono'] . '</td>';
