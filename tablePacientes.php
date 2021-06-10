@@ -42,8 +42,6 @@
                     echo '<td>'. $row['nombre'] . '</td>';
                     echo '<td>'. $row['apellidos'] . '</td>';
                     echo '<td>'. $row['celular'] . '</td>';
-                    echo '<td>'. $row['email'] . '</td>';
-                    echo '<td>'. $row['localidad'] . '</td>';
                     echo '<td>'. calculaedad($row['fechaNacimiento']) . '</td>';
                     echo '<td width=390>';
                     //echo '<div class="btn-toolbar" role="group">';

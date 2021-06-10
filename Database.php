@@ -3,7 +3,7 @@
 class Database extends PDO{
  
 	//dbname
-	private $dbname = "ConsultorioD";
+	private $dbname = "consultoriod";
 	//host
 	private $host 	= "localhost";
 	//user database
