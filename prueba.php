@@ -1,7 +1,7 @@
 <?php
-$user = 'Dental';
+$user = 'dental';
 $passwd = 'Dental5512!';
-$db = 'ConsultorioD';
+$db = 'consultoriod';
 $port = 5432;
 $host = 'localhost';
 $strCnx = "host=$host port=$port dbname=$db user=$user password=$passwd";
