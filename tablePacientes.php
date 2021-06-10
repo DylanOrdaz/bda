@@ -22,10 +22,11 @@
       <table class="table table-bordered table-light">
         <thead class="thead-dark">
           <tr>
+            <th scope="col">Paciente ID</th>
+            <th scope="col">Consultorio </th>
             <th scope="col">Nombre (s)</th>
             <th scope="col">Apellidos</th>
             <th scope="col">Celular</th>
-            <th scope="col">E-mail</th>
             <th scope="col">Edad</th>
           </tr>
         </thead>
